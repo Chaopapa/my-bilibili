@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import Http from "../../../utils/Http";
 import api from "../../../utils/api";
+import HomeHeader from "./children/HomeHeader";
+import MyScroll from "../../../components/MyScroll/MyScroll";
+import "./style.scss";
 
 export default class Home extends Component {
   render() {
     return (
-      <div className="page">
-        <h1>主页</h1>
-      </div>
+      <React.Fragment>
+        <HomeHeader />
+        <MyScroll>
+          <div id="home" className="page"></div>
+        </MyScroll>
+      </React.Fragment>
     );
   }
 
   componentDidMount() {
-    this.getVideoList();
+    // this.getVideoList();
   }
 
   async getVideoList() {
