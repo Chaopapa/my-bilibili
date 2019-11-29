@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, lazy, Suspense } from "react";
+import Tabs from "./components/Tabs/Tabs";
+import { BrowserRouter, Switch, Route,Redirect } from "react-router-dom";
+import "./style/style.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Home = lazy(() => import("./pages/Home/Home/Home"));
+const Mine = lazy(() => import("./pages/Mine/Mine/Mine"));
+const Channel = lazy(() => import("./pages/Channel/Channel/Channel"));
+const NotFound = lazy(()=>import("./pages/common/notFound/notFound"));
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <Suspense fallback={<h1>加载中...</h1>}>
+          <Switch >
+            <Redirect from="/" exact to="/home" ></Redirect>
+            <Route path="/home" component={Home} />
+            <Route path="/channel" component={Channel} />
+            <Route path="/mine" component={Mine} />
+
+            <Route  component={NotFound} />
+          </Switch>
+
+          <Tabs />
+        </Suspense>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
