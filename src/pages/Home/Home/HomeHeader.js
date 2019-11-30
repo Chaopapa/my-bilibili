@@ -11,6 +11,7 @@ const navList = [
 
 export default class HomeHeader extends Component {
   render() {
+    const style = "color:red"
     return (
       <div className="home-header">
         <div className="home-header-search">
@@ -22,10 +23,13 @@ export default class HomeHeader extends Component {
         </div>
         <nav className="home-header-nav">
           {navList.map(item => {
-            return <li key={item.id}>{item.title}</li>;
+            return <li  onClick={this.changeAction.bind(this,item.id)} className={this.props.selectIndex===item.id?'active':''}  key={item.id}>{item.title}</li>;
           })}
         </nav>
       </div>
     );
+  }
+  changeAction(id){
+    this.props.changeIndex(id);
   }
 }

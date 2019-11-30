@@ -1,3 +1,73 @@
-#home{
-    top: 160px;
+#home {
+  //   top: 165px;
+  background: #f4f4f4;
+  height: 14000px;
+  .home-banner {
+    width: 703px;
+    height: 350px;
+    margin: 20px auto;
+    .swiper-wrapper {
+      width: 100%;
+      height: 100%;
+      .swiper-slide {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.home-header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  // height: 168px;
+  background: #fff;
+  &-search {
+    height: 63px;
+    display: flex;
+    padding: 14px 24px 0;
+    justify-content: space-between;
+    &-user {
+      width: 62px;
+    }
+    &-ipt {
+      width: 445px;
+      height: 62px;
+      input {
+        outline: none;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+        font-size: 24px;
+        color: #c0c0c0;
+        border: 0;
+        border-radius: 62px;
+        background: #f4f4f4;
+      }
+    }
+    &-opa {
+      width: 130px;
+    }
+  }
+
+  &-nav {
+    height: 98px;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-around;
+    li {
+      width: 89px;
+      height: 79px;
+      line-height: 79px;
+      text-align: center;
+    }
+    .active {
+      color: #ea7a99;
+      font-size: 28px;
+      line-height: 78px;
+      border-bottom: 3px solid #ea7a99;
+    }
+  }
 }
