@@ -1,32 +1,70 @@
 import React, { Component } from "react";
 import "./style.scss";
-import Swiper from "swiper";
-import "swiper/css/swiper.min.css";
 import withScroll from "../../../HOC/withScroll";
+import Http from "../../../utils/Http";
+import api from "../../../utils/api";
+import Recommend from "./home-page/Recommend";
+
+const pageList = [
+  {
+    id: 1,
+    com: Recommend
+  },
+  {
+    id: 2,
+    com:Recommend
+  },
+  {
+    id: 3,
+    com:Recommend
+  },
+  {
+    id: 4,
+    com:Recommend
+  },
+  {
+    id: 5,
+    com:Recommend
+  },
+];
 
 class HomePage extends Component {
+  constructor(){
+      super();
+      this.state={
+
+      }
+  }  
   render() {
+      let Com  = this.state.com;
     return (
-      <div id="home" className="page">
-        <div className="swiper-container home-banner">
-          <div className="swiper-wrapper">
-            <div className="swiper-slide">slider1</div>
-            <div className="swiper-slide">slider2</div>
-            <div className="swiper-slide">slider3</div>
-          </div>
-        </div>
-      </div>
+        <Com/>
     );
+  }
+  
+  static getDerivedStateFromProps(props){
+      console.log(props.selectIndex);
+      console.log(pageList[props.selectIndex-1].com);
+      return {
+          com:pageList[props.selectIndex-1].com
+      }
   }
 
   componentDidMount() {
-    this.SwiperInit();
+    this.getVideoList();
   }
-  SwiperInit() {
-    new Swiper(".home-banner", {
-      // autoplay: true
-    });
+  async getVideoList() {
+    try {
+      let result = await Http.get(api.RECOMMEND_VIDEO, {
+        rid: 0,
+        day: 1,
+        jsonp: "jsonp"
+      });
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
-export default withScroll(HomePage, 165/75,96/75);
+export default withScroll(HomePage, 165 / 75, 96 / 75);

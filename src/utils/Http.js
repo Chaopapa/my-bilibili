@@ -46,24 +46,4 @@ export default class Http {
       console.log(error);
     }
   }
-  /**
-   * fetch不支持jsonp请求,此处使用axios
-   */
-  // static async requestJsonp(url, data) {
-  //   let params = "";
-  //   for (let key in data) {
-  //     if (!params) {
-  //       params += `?${key}=${data[key]}`;
-  //     } else {
-  //       params += `&${key}=${data[key]}`;
-  //     }
-  //   }
-  //   try {
-  //       let response = await fetchJsonp(`${url}${params}`);
-  //       return response;
-  //   } catch (error) {
-  //       console.log(error);
-  //   }
-    
-  // }
 }
