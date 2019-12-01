@@ -27,16 +27,17 @@ const pageList = [
 ];
 
 class HomePage extends Component {
-  constructor(){
-      super();
+  constructor(props){
+      super(props);
       this.state={
 
       }
+      console.log(props);
   }  
   render() {
       let Com  = this.state.com;
     return (
-        <Com/>
+        <Com {...this.props}/>
     );
   }
   
@@ -65,4 +66,4 @@ class HomePage extends Component {
   // }
 }
 
-export default withScroll(HomePage,'home-scroll',65 / 75, 96 / 75);
+export default withScroll(HomePage, 'home-scroll',175 / 75, 96 / 75);

@@ -52,16 +52,27 @@ class Recommend extends Component {
   }
 
   componentDidMount() {
-    this.props.getBannerData();
+    
     this.props.getRecommendVideo();
-
+    
+    this.scrollInit();
     this.SwiperInit();
   }
   async SwiperInit() {
+    await this.props.getBannerData();
     console.log("初始化swiper");
+    
     new Swiper(".home-banner", {
       // autoplay: true
     });
+  }
+
+  async scrollInit(){
+    //请求数据
+    await this.props.getRecommendVideo();
+    console.log(this.props);
+    //通知父级更新滚动视图
+    this.props.initAction();
   }
 }
 
@@ -70,14 +81,14 @@ const mapStateToProps = state => ({
   videoList: state.home.videoListMap["1"]
 });
 const mapDispatchToProps = dispatch => ({
-  getBannerData() {
+  async getBannerData() {
     let action = requestRecommendBanner();
-    dispatch(action);
+    await dispatch(action);
   },
 
-  getRecommendVideo() {
+  async getRecommendVideo() {
     let action = requestRecommendVideo(0, 1);
-    dispatch(action);
+    await dispatch(action);
   }
 });
 

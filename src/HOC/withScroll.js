@@ -15,18 +15,16 @@ export default (Com,className,top,bottom) => {
         bottom: `${bottom}rem`,
         left: 0
       };
+
     }
     render() {
       return (
         <div className={className} style={this.style}>
-          <Com {...this.props} />
+          <Com {...this.props} id={123} initAction={this.initScroll.bind(this)}/>
         </div>
       );
     }
 
-    componentDidMount() {
-      this.initScroll();
-    }
     initScroll() {
       this.myScroll = new window.IScroll(`.${className}`);
       console.log('初始化滚动视图')
