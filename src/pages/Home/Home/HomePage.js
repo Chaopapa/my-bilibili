@@ -51,20 +51,20 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    this.getVideoList();
+    // this.getVideoList();
   }
-  async getVideoList() {
-    try {
-      let result = await Http.get(api.RECOMMEND_VIDEO, {
-        rid: 0,
-        day: 1,
-        jsonp: "jsonp"
-      });
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async getVideoList() {
+  //   try {
+  //     let result = await Http.get(api.RECOMMEND_VIDEO, {
+  //       rid: 0,
+  //       day: 1,
+  //       jsonp: "jsonp"
+  //     });
+  //     console.log(result);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 }
 
 export default withScroll(HomePage, 165 / 75, 96 / 75);
