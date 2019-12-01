@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Swiper from "swiper";
 import "swiper/css/swiper.min.css";
 import { connect } from "react-redux";
+import {Link} from "react-router-dom";
 import { requestRecommendBanner, requestRecommendVideo } from "../reducer";
 
 class Recommend extends Component {
@@ -33,7 +34,7 @@ class Recommend extends Component {
           {this.props.videoList.map(item => {
             return (
            
-                <div key={item.aid} className="video-r-item">
+                <Link key={item.aid} className="video-r-item" to={'/home/video/detail/'+item.aid}>
                   <div className="video-r-item-img">
                     <img src={item.pic} title={item.title}/>
                   </div>
@@ -41,7 +42,7 @@ class Recommend extends Component {
                     <h4>{item.title}</h4>
                     <p>{item.author}</p>
                   </div>
-                </div>
+                </Link>
               
             );
           })}

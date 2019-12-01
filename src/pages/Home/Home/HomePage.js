@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./style.scss";
 import withScroll from "../../../HOC/withScroll";
-import Http from "../../../utils/Http";
-import api from "../../../utils/api";
 import Recommend from "./home-page/Recommend";
 
 const pageList = [
@@ -67,4 +65,4 @@ class HomePage extends Component {
   // }
 }
 
-export default withScroll(HomePage, 165 / 75, 96 / 75);
+export default withScroll(HomePage,'home-scroll',65 / 75, 96 / 75);

@@ -3,7 +3,7 @@ import React from "react";
 /**
  * 滚动视图高阶组件
  */
-export default (Com, top, bottom) => {
+export default (Com,className,top,bottom) => {
   return class withScroll extends React.Component {
     constructor(props) {
       super(props);
@@ -18,7 +18,7 @@ export default (Com, top, bottom) => {
     }
     render() {
       return (
-        <div className="scroll-wrap" style={this.style}>
+        <div className={className} style={this.style}>
           <Com {...this.props} />
         </div>
       );
@@ -28,7 +28,8 @@ export default (Com, top, bottom) => {
       this.initScroll();
     }
     initScroll() {
-      this.myScroll = new window.IScroll(".scroll-wrap");
+      this.myScroll = new window.IScroll(`.${className}`);
+      console.log('初始化滚动视图')
     }
   };
 };

@@ -11,3 +11,11 @@ html,body,#root{
     // bottom: 96px;
     // overflow: hidden;
 }
+.subPage{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background: #f4f4f4;
+    bottom: 0;
+    z-index: 2;
+}

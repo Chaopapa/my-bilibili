@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import HomeHeader from "./HomeHeader";
 import HomePage from "./HomePage";
+
 import "./style.scss";
+
 
  
 export default class Home extends Component {
@@ -24,6 +26,7 @@ export default class Home extends Component {
           selectIndex={this.state.selectIndex}
         />
        <HomePage  selectIndex={this.state.selectIndex}/>
+       
       </React.Fragment>
     );
   }
