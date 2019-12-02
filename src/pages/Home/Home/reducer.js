@@ -69,14 +69,12 @@ export const requestLikeVideo = aid => async dispatch => {
 export default (state = initialState, action) => {
   switch (action.type) {
     case "setRecommendBanner":
-      console.log(action.value);
       return {
         ...state,
         recommendBanner: [...state.recommendBanner, ...action.value]
       };
 
     case "setVideoListMap":
-      console.log(action.value);
       return {
         ...state,
         videoListMap: {
@@ -84,10 +82,13 @@ export default (state = initialState, action) => {
         }
       };
     case "setLikeVideo":
+        if(state.likeVideo.length>0){
+          return state;
+        }
       return {
         ...state,
-        likeVideo:[...state.likeVideo,...action.value]
-      }  
+        likeVideo: [...state.likeVideo, ...action.value]
+      };
     default:
       return state;
   }
