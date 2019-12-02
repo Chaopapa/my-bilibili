@@ -1,7 +1,6 @@
 import http from "../../../utils/Http";
 import api from "../../../utils/api";
-import { resolve } from "dns";
-import { reject } from "q";
+import { dispatch } from "../../../../../../Users/qf/AppData/Local/Microsoft/TypeScript/3.6/node_modules/rxjs/internal/observable/pairs";
 
 const initialState = {
   recommendBanner: [],
@@ -11,7 +10,8 @@ const initialState = {
     "3": [],
     "4": [],
     "5": []
-  }
+  },
+  likeVideo: []
 };
 
 //同步action
@@ -22,6 +22,11 @@ const setRecommendBanner = val => ({
 
 const setVideoListMap = val => ({
   type: "setVideoListMap",
+  value: val
+});
+
+const setLikeVideo = val => ({
+  type: "setLikeVideo",
   value: val
 });
 
@@ -51,6 +56,16 @@ export const requestRecommendVideo = (rid, day) => async dispatch => {
   dispatch(action);
 };
 
+export const requestLikeVideo = aid => async dispatch => {
+  let result = await http.get(api.LIKE_VIDEO, {
+    aid
+  });
+  console.log(result.data);
+  let videoList = result.data;
+  let action = setLikeVideo(videoList);
+  dispatch(action);
+};
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case "setRecommendBanner":
@@ -68,7 +83,11 @@ export default (state = initialState, action) => {
           "1": [...action.value]
         }
       };
-
+    case "setLikeVideo":
+      return {
+        ...state,
+        likeVideo:[...state.likeVideo,...action.value]
+      }  
     default:
       return state;
   }

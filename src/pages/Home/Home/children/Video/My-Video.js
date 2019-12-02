@@ -13,7 +13,7 @@ export default class MyVideo extends Component {
         )
     };
     componentDidMount(){
-    //    this.initVideo();
+       this.initVideo();
     }
 
     initVideo(){

@@ -4,6 +4,7 @@ import VideoTab from "./Video-Tab";
 import About from "./video-main/About";
 import Commend from "./video-main/Commend";
 
+
 export default class VideoDetail extends PureComponent {
   constructor() {
     super();
@@ -20,7 +21,7 @@ export default class VideoDetail extends PureComponent {
           changeAction={this.handleChange.bind(this)}
           select={this.state.select}
         ></VideoTab>
-        <Com></Com>
+        <Com {...this.props}></Com>
       </div>
     );
   }
