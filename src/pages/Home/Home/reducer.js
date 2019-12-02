@@ -1,6 +1,5 @@
 import http from "../../../utils/Http";
 import api from "../../../utils/api";
-import { dispatch } from "../../../../../../Users/qf/AppData/Local/Microsoft/TypeScript/3.6/node_modules/rxjs/internal/observable/pairs";
 
 const initialState = {
   recommendBanner: [],
@@ -11,7 +10,8 @@ const initialState = {
     "4": [],
     "5": []
   },
-  likeVideo: []
+  likeVideo: [],
+  videoComment: []
 };
 
 //同步action
@@ -30,6 +30,11 @@ const setLikeVideo = val => ({
   value: val
 });
 
+const setVideoComment = val => ({
+  type: "setVideoComment",
+  value: val
+});
+
 //异步action
 export const requestRecommendBanner = () => async dispatch => {
   let result = await http.get(api.RECOMMEND_BANNER, {
@@ -38,7 +43,6 @@ export const requestRecommendBanner = () => async dispatch => {
     jsonp: "jsonp"
   });
   let bannerList = result.data;
-  console.log("--------------请求到了数据");
   let action = setRecommendBanner(bannerList);
   dispatch(action);
 };
@@ -49,7 +53,6 @@ export const requestRecommendVideo = (rid, day) => async dispatch => {
     day,
     jsonp: "jsonp"
   });
-  console.log(result.data.list);
   let videoList = result.data.list;
   let action = setVideoListMap(videoList);
 
@@ -60,9 +63,28 @@ export const requestLikeVideo = aid => async dispatch => {
   let result = await http.get(api.LIKE_VIDEO, {
     aid
   });
-  console.log(result.data);
   let videoList = result.data;
   let action = setLikeVideo(videoList);
+  dispatch(action);
+};
+
+export const requestVideoComment = (
+  oid,
+  type,
+  sort,
+  nohot
+) => async dispatch => {
+  let result = await http.get(api.COMMENT, {
+    oid,
+    type,
+    sort,
+    pn: 1,
+    nohot
+  });
+
+  let commentList = await result.data.replies;
+  let action = setVideoComment(commentList);
+  console.log(action);
   dispatch(action);
 };
 
@@ -82,12 +104,21 @@ export default (state = initialState, action) => {
         }
       };
     case "setLikeVideo":
-        if(state.likeVideo.length>0){
-          return state;
-        }
+      if (state.likeVideo.length > 0) {
+        return state;
+      }
       return {
         ...state,
         likeVideo: [...state.likeVideo, ...action.value]
+      };
+
+    case "setVideoComment":
+      if (state.videoComment.length > 0) {
+        return state;
+      }
+      return {
+        ...state,
+        videoComment: [...state.videoComment, ...action.value]
       };
     default:
       return state;

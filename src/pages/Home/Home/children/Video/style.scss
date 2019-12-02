@@ -66,3 +66,19 @@
     }
   }
 }
+.sendComment{
+  position: absolute;
+  width: 100%;
+  border-top:2px solid #ccc;
+  bottom: 0;
+  height: 96px;
+  background: #fff;
+  input{
+    width: 618px;
+    height: 62px;
+    border:0;
+    outline: none;
+    background: #f4f4f4;
+    border-radius: 62px;
+  }
+}
