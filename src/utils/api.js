@@ -9,10 +9,14 @@ const LIKE_VIDEO = "/api/home/video/like";
 //获取评论
 const COMMENT = "/api/public/comment";
 
+//获取直播页面中的相关信息
+const LIVE_ALL  = "/api/home/live";
+
 
 export default {
   RECOMMEND_VIDEO,
   RECOMMEND_BANNER,
   LIKE_VIDEO,
-  COMMENT
+  COMMENT,
+  LIVE_ALL
 };

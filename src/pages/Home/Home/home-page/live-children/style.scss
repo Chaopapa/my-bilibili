@@ -1,0 +1,17 @@
+.tag-list{
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &-item{
+        width: 104px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 72px;
+        img{
+            width: 100%;
+        }
+    }
+}

@@ -3,6 +3,8 @@ import api from "../../../utils/api";
 
 const initialState = {
   recommendBanner: [],
+  liveAll: [],
+
   videoListMap: {
     "1": [],
     "2": [],
@@ -19,6 +21,11 @@ const setRecommendBanner = val => ({
   type: "setRecommendBanner",
   value: val
 });
+const setLiveAll = val => ({
+  type: "setLiveAll",
+  value: val
+})
+
 
 const setVideoListMap = val => ({
   type: "setVideoListMap",
@@ -46,6 +53,26 @@ export const requestRecommendBanner = () => async dispatch => {
   let action = setRecommendBanner(bannerList);
   dispatch(action);
 };
+
+export const requestLiveAll = (scale, bulid) => async dispatch => {
+  let result = await http.get(api.LIVE_ALL, {
+    device: 'phone',
+    platform: 'ios',
+    scale,
+    bulid
+  });
+
+  if (result.code == '0') {
+    let liveAll = result.data.module_list;
+    console.log(liveAll);
+    let action = setLiveAll(liveAll);
+    dispatch(action);
+  }else{
+    throw new Error('请求错误');
+  }
+
+
+}
 
 export const requestRecommendVideo = (rid, day) => async dispatch => {
   let result = await http.get(api.RECOMMEND_VIDEO, {
@@ -91,7 +118,7 @@ export const requestVideoComment = (
 export default (state = initialState, action) => {
   switch (action.type) {
     case "setRecommendBanner":
-      
+
       return {
         ...state,
         recommendBanner: [...state.recommendBanner, ...action.value]
@@ -124,6 +151,14 @@ export default (state = initialState, action) => {
         ...state,
         videoComment: [...state.videoComment, ...action.value]
       };
+    case "setLiveAll":
+      if(state.liveAll.length>0){
+        return state;
+      }
+      return {
+        ...state,
+        liveAll:[...state.liveAll,...action.value]
+      }
     default:
       return state;
   }

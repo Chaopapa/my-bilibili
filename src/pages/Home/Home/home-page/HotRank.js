@@ -22,9 +22,7 @@ class HotRank extends Component {
                         <span>入站必刷</span>
                     </a>
                 </div>
-                {/* <div className="">
-                    {this.props.videoList.length}
-                </div> */}
+             
                 <div className="hot-video-list">
                     {
                         this.props.videoList.map(item=>{

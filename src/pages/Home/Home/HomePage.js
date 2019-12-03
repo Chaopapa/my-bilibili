@@ -3,11 +3,12 @@ import "./style.scss";
 import withScroll from "../../../HOC/withScroll";
 import Recommend from "./home-page/Recommend";
 import HotRank from "./home-page/HotRank";
+import Live from "./home-page/Live";
 
 const pageList = [
   {
     id: 1,
-    com: Recommend
+    com: Live
   },
   {
     id: 2,
