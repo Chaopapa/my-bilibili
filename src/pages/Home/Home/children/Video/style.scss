@@ -36,6 +36,7 @@
     height: 60px;
     margin-top: 10px;
 
+
     input {
       width: 200px;
       float: left;
@@ -69,10 +70,14 @@
 .sendComment{
   position: absolute;
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 30px;
   border-top:2px solid #ccc;
   bottom: 0;
   height: 96px;
   background: #fff;
+  display: flex;
+  justify-content: space-between;
   input{
     width: 618px;
     height: 62px;
@@ -80,5 +85,12 @@
     outline: none;
     background: #f4f4f4;
     border-radius: 62px;
+    align-self: center;
+   
+  }
+  a{
+    align-self: center;
+    width: 62px;
+    height: 62px;
   }
 }
