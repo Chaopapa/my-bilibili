@@ -11,7 +11,6 @@ const navList = [
 
 export default class HomeHeader extends Component {
   render() {
-    const style = "color:red"
     return (
       <div className="home-header">
         <div className="home-header-search">

@@ -91,12 +91,16 @@ export const requestVideoComment = (
 export default (state = initialState, action) => {
   switch (action.type) {
     case "setRecommendBanner":
+      
       return {
         ...state,
         recommendBanner: [...state.recommendBanner, ...action.value]
       };
 
     case "setVideoListMap":
+      if (state.videoListMap['1'].length > 0) {
+        return state;
+      }
       return {
         ...state,
         videoListMap: {

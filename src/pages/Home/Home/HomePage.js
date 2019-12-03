@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./style.scss";
 import withScroll from "../../../HOC/withScroll";
 import Recommend from "./home-page/Recommend";
+import HotRank from "./home-page/HotRank";
 
 const pageList = [
   {
@@ -14,7 +15,7 @@ const pageList = [
   },
   {
     id: 3,
-    com:Recommend
+    com:HotRank
   },
   {
     id: 4,
@@ -50,20 +51,7 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    // this.getVideoList();
   }
-  // async getVideoList() {
-  //   try {
-  //     let result = await Http.get(api.RECOMMEND_VIDEO, {
-  //       rid: 0,
-  //       day: 1,
-  //       jsonp: "jsonp"
-  //     });
-  //     console.log(result);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 }
 
 export default withScroll(HomePage, 'home-scroll',175 / 75, 96 / 75);
