@@ -15,3 +15,38 @@
         }
     }
 }
+
+.live-itemList{
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid #ccc;
+    .list-title{
+        display: flex;
+        height: 88px;
+        padding: 0 20px;
+        line-height: 88px;
+        h3{
+            width: 584px;
+            
+        }
+        p{
+            width: 120px;
+            color: #a3a3a3;
+            font-size: 28px;
+        }
+    }
+   .list-main{
+       display: flex;
+       padding: 0 20px;
+       justify-content: space-between;
+       flex-wrap: wrap;
+       .live-item{
+            width: 342px;
+            height: 271px;
+            margin-bottom: 42px;
+            img{
+                height: 193px;
+                border-radius: 8px;
+            }
+        }
+   }
+}

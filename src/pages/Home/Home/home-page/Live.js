@@ -3,6 +3,8 @@ import { requestLiveAll } from "../reducer";
 import { connect } from "react-redux";
 import LiveSwiper from "./live-children/LiveSwiper";
 import TagList from "./live-children/TagList";
+import LiveItem from "./live-children/LiveItem";
+import TimeRank from "./live-children/TimeRank";
 import "../style.scss";
 import Swiper from "swiper";
 
@@ -19,7 +21,7 @@ class Live extends Component {
         if (props.liveAll.length > 0) {
             return {
                 bannerList: props.liveAll[0].list,//banner图,
-                moduleList:props.liveAll[2].list,//分区模块
+                moduleList: props.liveAll[2].list,//分区模块
                 recommendLive: props.liveAll[7].list,//推荐直播
                 timeRank: props.liveAll[12].list,//小时榜
                 radio: props.liveAll[13].list,//电台,
@@ -34,7 +36,7 @@ class Live extends Component {
         } else {
             return {
                 bannerList: [],
-                moduleList:[],
+                moduleList: [],
                 recommendLive: [],
                 timeRank: [],
                 radio: [],
@@ -55,8 +57,17 @@ class Live extends Component {
     render() {
         return (
             <div className="home-live">
-                <LiveSwiper  bannerList={this.state.bannerList} />
+                <LiveSwiper bannerList={this.state.bannerList} />
                 <TagList moduleList={this.state.moduleList} />
+                <LiveItem title="推荐直播" count="6" list={this.state.recommendLive}  rightText="换一换" right-icon="" />
+                <LiveItem title="电台" count="4" list={this.state.recommendLive}  rightText="查看更多" right-icon="" />
+                <LiveItem title="视频唱见" count="4" list={this.state.video}  rightText="查看更多" right-icon="" />
+                <LiveItem title="王者荣耀" count="4" list={this.state.rongyao}  rightText="查看更多" right-icon="" />
+                <LiveItem title="网游" count="4" list={this.state.game}  rightText="查看更多" right-icon="" />
+                <LiveItem title="手游" count="4" list={this.state.mobile}  rightText="查看更多" right-icon="" />
+                <LiveItem title="单机" count="4" list={this.state.dangji}  rightText="查看更多" right-icon="" />
+                <LiveItem title="娱乐" count="4" list={this.state.yule}  rightText="查看更多" right-icon="" />
+                <LiveItem title="绘画" count="4" list={this.state.paint}  rightText="查看更多" right-icon="" />
             </div>
         )
     }
