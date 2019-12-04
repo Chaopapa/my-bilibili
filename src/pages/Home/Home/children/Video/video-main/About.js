@@ -4,6 +4,9 @@ import "./style.scss";
 import { connect } from "react-redux";
 import { requestLikeVideo } from "../../../reducer";
 
+
+let top = 532;
+
 class About extends Component {
   constructor(props) {
     super(props);
@@ -46,11 +49,11 @@ class About extends Component {
               <span> 103</span>
             </p>
             <p>
-              <span className="iconfont icon-coin"></span>
+              <span className="iconfont icon-collect"></span>
               <span>64</span>
             </p>
             <p>
-              <span className="iconfont icon-coin"></span>
+              <span className="iconfont icon-zhuanfa"></span>
               <span> 181</span>
             </p>
           </div>
@@ -93,6 +96,11 @@ class About extends Component {
     // this.props.initAction();
     this.getLikeVideo();
   }
+
+  componentDidUpdate(){
+    top = this.props.top;
+    // console.log('top'+"------------"+top);
+  }
   async getLikeVideo() {
     await this.props.getLikeVideo();
     //更新滚动视图
@@ -101,6 +109,8 @@ class About extends Component {
     this.props.initAction();
   }
 }
+
+
 
 const mapStateToProps = state => ({
   videoList: state.home.videoListMap["1"],
@@ -116,4 +126,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withScroll(About, "video-scroll", 462 / 75, 0));
+)(withScroll(About, "video-scroll", top/ 75, 0));

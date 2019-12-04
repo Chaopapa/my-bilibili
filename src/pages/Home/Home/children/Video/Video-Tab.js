@@ -5,9 +5,15 @@ const tabList = [
   { id: 1, title: "评论" }
 ];
 export default class VideoTab extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+
+    }
+  }
   render() {
     return (
-      <nav className="video-nav">
+      <nav className="video-nav" style={{top:this.props.navTop/75+'rem'}} ref={(el)=>this.nav=el}>
         <ul>
           {tabList.map(item => {
             return (
@@ -32,4 +38,6 @@ export default class VideoTab extends Component {
       </nav>
     );
   }
+  
+
 }

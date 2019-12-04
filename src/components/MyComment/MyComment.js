@@ -35,9 +35,26 @@ export default class MyComment extends Component {
             {this.props.item.content.message}
           </div>
           <div className="comment-opa">
-            <p>{this.props.item.like}</p>
-            <p>265</p>
-            <p>{this.props.item.rcount}</p>
+            <p>
+              <span className="iconfont icon-zan">
+
+              </span>
+              <span>
+                {this.props.item.like}
+              </span>
+            </p>
+            <p>
+              <span className="iconfont icon-cai"></span>
+              <span>265</span>
+            </p>
+            <p>
+              <span className="iconfont icon-zhuanfa">
+
+              </span>
+              <span>
+                {this.props.item.rcount}
+              </span>
+            </p>
           </div>
           <div className="my-comment-main-comment">{childComment}</div>
         </div>

@@ -9,25 +9,31 @@ export default class VideoDetail extends PureComponent {
   constructor() {
     super();
     this.state = {
-        select: 0
-      };
-    }
-    render() {
-      let Com = this.state.com;
+      select: 0,
+      navTop: 382,
+    };
+  }
+  render() {
+    let Com = this.state.com;
     return (
       <div className="subPage">
-        <MyVideo></MyVideo>
+        <MyVideo changeNavTop={(val) => {
+          this.setState({
+            navTop:val
+          })
+        }}></MyVideo>
         <VideoTab
           changeAction={this.handleChange.bind(this)}
           select={this.state.select}
+          navTop={this.state.navTop}
         ></VideoTab>
-        <Com {...this.props}></Com>
-        {this.state.select==1&&<div className="sendComment">
-          <input type="text"/>
+        <Com {...this.props} top={this.state.navTop + 80}></Com>
+        {this.state.select == 1 && <div className="sendComment">
+          <input type="text" />
           <a href="#">
             <span className="iconfont"  ></span>
           </a>
-          </div>}
+        </div>}
       </div>
     );
   }
