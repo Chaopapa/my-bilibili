@@ -20,6 +20,8 @@ export default (props) => {
                 {showList.map(item => {
                     return <div key={item.roomid} className="live-item">
                       <img src={item.cover} alt=""/>
+                      <h4>{item.title}</h4>
+                      <p>{item.area_v2_parent_name}</p>
                     </div>
                 })}
             </div>

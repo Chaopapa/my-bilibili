@@ -23,7 +23,7 @@ class Live extends Component {
                 bannerList: props.liveAll[0].list,//banner图,
                 moduleList: props.liveAll[2].list,//分区模块
                 recommendLive: props.liveAll[7].list,//推荐直播
-                timeRank: props.liveAll[12].list,//小时榜
+                timeRank: props.liveAll[12],//小时榜
                 radio: props.liveAll[13].list,//电台,
                 video: props.liveAll[14].list,//视频唱见
                 rongyao: props.liveAll[15].list,//王者荣耀
@@ -38,7 +38,7 @@ class Live extends Component {
                 bannerList: [],
                 moduleList: [],
                 recommendLive: [],
-                timeRank: [],
+                timeRank: {},
                 radio: [],
                 video: [],
                 rongyao: [],
@@ -60,6 +60,7 @@ class Live extends Component {
                 <LiveSwiper bannerList={this.state.bannerList} />
                 <TagList moduleList={this.state.moduleList} />
                 <LiveItem title="推荐直播" count="6" list={this.state.recommendLive}  rightText="换一换" right-icon="" />
+                <TimeRank timeRank={this.state.timeRank} />
                 <LiveItem title="电台" count="4" list={this.state.recommendLive}  rightText="查看更多" right-icon="" />
                 <LiveItem title="视频唱见" count="4" list={this.state.video}  rightText="查看更多" right-icon="" />
                 <LiveItem title="王者荣耀" count="4" list={this.state.rongyao}  rightText="查看更多" right-icon="" />
