@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { requestVideoComment } from "../../../reducer";
 import MyComment from "../../../../../../components/MyComment/MyComment";
 
+let top = 502;
+
 class Comment extends Component {
   render() {
     return (
@@ -43,4 +45,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withScroll(Comment, "video-scroll", 462 / 75, 98/75));
+)(withScroll(Comment, "video-scroll", top/ 75, 98/75));

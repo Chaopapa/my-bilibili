@@ -25,8 +25,8 @@ class App extends Component {
           <Switch>
             <Route
               path="/home/video/detail/:aid"
-              render={() => {
-                return <VideoDetail/>;
+              render={(props) => {
+                return < VideoDetail {...props} />;
               }}
             />
           </Switch>

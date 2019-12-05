@@ -21,7 +21,7 @@ export default class VideoDetail extends PureComponent {
           this.setState({
             navTop:val
           })
-        }}></MyVideo>
+        }} history={this.props.history} ></MyVideo>
         <VideoTab
           changeAction={this.handleChange.bind(this)}
           select={this.state.select}
