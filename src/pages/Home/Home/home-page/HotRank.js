@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "../style.scss";
 import { requestRecommendVideo } from "../reducer";
 import { connect } from "react-redux";
+import {Link} from "react-router-dom";
 
 class HotRank extends Component {
     render() {
@@ -26,7 +27,8 @@ class HotRank extends Component {
                 <div className="hot-video-list">
                     {
                         this.props.videoList.map(item=>{
-                            return <div key={item.aid}>
+                            return (
+                            <Link key={item.aid}  to={'/home/video/detail/'+item.aid}>
                                 <div className="hot-video-item">
                                     <div className="hot-video-item-img">
                                         <img src={item.pic} alt=""/>
@@ -38,7 +40,7 @@ class HotRank extends Component {
                                         <p className="info">105.7万观看&nbsp;17小时前</p>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>)
                         })
                     }
                 </div>

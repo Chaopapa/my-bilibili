@@ -173,6 +173,10 @@
     justify-content: space-between;
     &-user {
       width: 62px;
+      img{
+        width: 100%;
+      }
+
     }
     &-ipt {
       width: 445px;
@@ -192,6 +196,14 @@
     }
     &-opa {
       width: 130px;
+      line-height: 62px;
+      span{
+        margin: 0 15px;
+        color: #aaa;
+      }
+      .iconfont{
+        font-size: 38px;
+      }
     }
   }
 

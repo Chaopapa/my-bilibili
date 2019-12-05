@@ -25,7 +25,7 @@ export default class Home extends Component {
           changeIndex={this.changeIndex.bind(this)}
           selectIndex={this.state.selectIndex}
         />
-       <HomePage  selectIndex={this.state.selectIndex}/>
+       <HomePage history={this.props.history}  selectIndex={this.state.selectIndex}/>
        
       </React.Fragment>
     );

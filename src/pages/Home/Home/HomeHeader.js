@@ -14,11 +14,17 @@ export default class HomeHeader extends Component {
     return (
       <div className="home-header">
         <div className="home-header-search">
-          <div className="home-header-search-user"></div>
+          <div className="home-header-search-user">
+          <img src="/static/image/user.jpg" alt="" />
+          </div>
           <div className="home-header-search-ipt">
             <input type="text" />
           </div>
-          <div className="home-header-search-opa"></div>
+          <div className="home-header-search-opa">
+            <span className="iconfont icon-youxi"></span>
+            <span className="iconfont icon-xiaoxi"></span>
+
+          </div>
         </div>
         <nav className="home-header-nav">
           {navList.map(item => {
