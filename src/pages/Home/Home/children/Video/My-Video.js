@@ -36,6 +36,8 @@ export default class MyVideo extends Component {
     }
     componentWillUnmount() {
         this.video.removeEventListener('canplay', this.canPlayHandle);
+        this.video.removeEventListener('timeupdate',this.timeChangeHandle);
+        
     }
 
     initVideo() {
