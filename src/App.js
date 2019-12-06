@@ -8,12 +8,13 @@ const Mine = lazy(() => import("./pages/Mine/Mine/Mine"));
 const Channel = lazy(() => import("./pages/Channel/Channel/Channel"));
 const NotFound = lazy(() => import("./pages/common/notFound/notFound"));
 const VideoDetail = lazy(()=>import("./pages/Home/Home/children/Video/VideoDetail"))
+const LiveDetail = lazy(()=>import("./pages/Home/Home/children/Live/LiveDetail"));
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Suspense fallback={<h1>加载中...</h1>}>
+        <Suspense fallback={<h1>(´・ω・｀)正在加载...</h1>}>
           <Switch>
             <Redirect from="/" exact to="/home"></Redirect>
             <Route path="/home" component={Home} />
@@ -29,6 +30,10 @@ class App extends Component {
                 return < VideoDetail {...props} />;
               }}
             />
+            <Route path="/home/live/detail/:aid" render={(props)=>{
+                console.log('liveDetail匹配');
+                return <LiveDetail  {...props}></LiveDetail>
+            }} />
           </Switch>
           <Tabs />
         </Suspense>

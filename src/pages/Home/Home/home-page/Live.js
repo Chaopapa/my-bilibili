@@ -61,7 +61,7 @@ class Live extends Component {
                 <TagList moduleList={this.state.moduleList} />
                 <LiveItem title="推荐直播" count="6" list={this.state.recommendLive}  rightText="换一换" right-icon="" />
                 <TimeRank timeRank={this.state.timeRank} />
-                <LiveItem title="电台" count="4" list={this.state.recommendLive}  rightText="查看更多" right-icon="" />
+                <LiveItem title="电台" count="4" list={this.state.radio}  rightText="查看更多" right-icon="" />
                 <LiveItem title="视频唱见" count="4" list={this.state.video}  rightText="查看更多" right-icon="" />
                 <LiveItem title="王者荣耀" count="4" list={this.state.rongyao}  rightText="查看更多" right-icon="" />
                 <LiveItem title="网游" count="4" list={this.state.game}  rightText="查看更多" right-icon="" />
@@ -76,7 +76,9 @@ class Live extends Component {
     componentDidMount() {
         this.getLiveAll();
     }
-
+    componentWillUnmount(){
+        console.log('组件卸载');
+    }
 
     async getLiveAll() {
         await this.props.getLiveAll();

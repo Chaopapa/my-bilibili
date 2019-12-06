@@ -4,6 +4,10 @@ import VideoTab from "./Video-Tab";
 import About from "./video-main/About";
 import Comment from "./video-main/Comment";
 
+const tabList = [
+  { id: 0, title: "简介" },
+  { id: 1, title: "评论" }
+];
 
 export default class VideoDetail extends PureComponent {
   constructor() {
@@ -26,6 +30,7 @@ export default class VideoDetail extends PureComponent {
           changeAction={this.handleChange.bind(this)}
           select={this.state.select}
           navTop={this.state.navTop}
+          tabList={tabList}
         ></VideoTab>
         <Com {...this.props} top={this.state.navTop + 80}></Com>
         {this.state.select == 1 && <div className="sendComment">

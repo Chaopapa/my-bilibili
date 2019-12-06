@@ -16,6 +16,8 @@ const initialState = {
   videoComment: []
 };
 
+
+
 //同步action
 const setRecommendBanner = val => ({
   type: "setRecommendBanner",
@@ -118,7 +120,9 @@ export const requestVideoComment = (
 export default (state = initialState, action) => {
   switch (action.type) {
     case "setRecommendBanner":
-
+      if(state.recommendBanner.length>0){
+        return state;
+      }
       return {
         ...state,
         recommendBanner: [...state.recommendBanner, ...action.value]

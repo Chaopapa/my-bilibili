@@ -1,0 +1,57 @@
+.live-interact{
+    width: 100%;
+    position: absolute;
+    top: 522px;
+    bottom: 98px;
+    &-header{
+        height: 140px;
+        position: absolute;
+        width: 100%;
+        padding: 0 22px;
+        box-sizing: border-box;
+        top: 0;
+        background: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        img{
+            width: 60px;
+            height: 60px;
+        }
+        &-info{
+            width: 485px;
+            height: 60px;
+            margin-left:23px;
+            h3{
+                
+            }
+
+            p{
+                font-weight: normal;
+                font-size: 20px;
+                color: #999999;
+                margin-top: 17px;
+                span{
+                    margin-right: 24px;
+                }
+            }
+
+        }
+        a{
+            width: 122px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color:#fff;
+            background: #ea7a99;
+        }
+    }
+    &-main{
+        padding: 0 24px;
+        &-item{
+            margin-bottom: 20px;
+        }
+    }
+
+
+}

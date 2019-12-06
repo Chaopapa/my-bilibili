@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
-const tabList = [
-  { id: 0, title: "简介" },
-  { id: 1, title: "评论" }
-];
+
 export default class VideoTab extends Component {
   constructor(props){
     super(props);
@@ -15,7 +12,7 @@ export default class VideoTab extends Component {
     return (
       <nav className="video-nav" style={{top:this.props.navTop/75+'rem'}} ref={(el)=>this.nav=el}>
         <ul>
-          {tabList.map(item => {
+          {this.props.tabList.map(item => {
             return (
               <li
                 key={item.id}
@@ -31,10 +28,10 @@ export default class VideoTab extends Component {
             );
           })}
         </ul>
-        <div className="video-nav-ipt">
+        {!this.props.isLive&&(<div className="video-nav-ipt">
             <input type="text"/>
             <button>弹</button>
-        </div>
+        </div>)}
       </nav>
     );
   }
