@@ -119,7 +119,7 @@ export default function Live(props) {
         client.onmessage = function (e) {
             var result = convertToObject(e.data);
             let body = result.body;
-
+            console.log(body);
             if (body instanceof Array && body.length > 0) {
                 let info = body[0].info;
                 if (info instanceof Array && info.length > 0) {
@@ -169,9 +169,6 @@ export default function Live(props) {
                 <img src="/static/image/user.jpg" alt=""/>
             </span>
             <input type="text" placeholder="发个弹幕呗"/>
-            <a href="#">
-                <span className="iconfont"  ></span>
-            </a>
             <span className="iconfont icon-liwu gift"></span>
         </div>}
     </div >);

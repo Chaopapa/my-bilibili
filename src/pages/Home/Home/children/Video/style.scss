@@ -147,10 +147,11 @@
   height: 96px;
   background: #fff;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  
   input{
-    width: 618px;
+    width: 600px;
     height: 62px;
     border:0;
     outline: none;
@@ -165,6 +166,9 @@
     align-self: center;
     width: 62px;
     height: 62px;
+    .iconfont{
+      font-size: 52px;
+    }
   }
   .gift{
     font-size: 70px;

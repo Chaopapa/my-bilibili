@@ -36,7 +36,7 @@ export default class VideoDetail extends PureComponent {
         {this.state.select == 1 && <div className="sendComment">
           <input type="text" />
           <a href="#">
-            <span className="iconfont"  ></span>
+            <span className="iconfont icon-biaoqing" ></span>
           </a>
         </div>}
       </div>
