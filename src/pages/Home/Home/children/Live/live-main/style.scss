@@ -47,11 +47,28 @@
         }
     }
     &-main{
-        padding: 0 24px;
+        padding: 0 24px 40px;
         &-item{
-            margin-bottom: 20px;
+            margin:15px 0;
+            font-size: 28px;
+            span{
+                color: #9b9b9b;
+                margin-right: 15px;
+            }
         }
     }
 
 
+}
+.sc-i{
+    .user{
+        width: 72px;
+        img{
+            width: 100%;
+        }
+    }
+    input{
+       width: 418px;
+      
+    }
 }

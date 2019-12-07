@@ -30,7 +30,7 @@ class App extends Component {
                 return < VideoDetail {...props} />;
               }}
             />
-            <Route path="/home/live/detail/:aid" render={(props)=>{
+            <Route path="/home/live/detail/:roomid" render={(props)=>{
                 console.log('liveDetail匹配');
                 return <LiveDetail  {...props}></LiveDetail>
             }} />

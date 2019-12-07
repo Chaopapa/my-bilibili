@@ -148,19 +148,26 @@
   background: #fff;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   input{
     width: 618px;
     height: 62px;
     border:0;
     outline: none;
-    background: #f4f4f4;
+    background: #ddd;
     border-radius: 62px;
     align-self: center;
+    padding-left:20px;
+    box-sizing: border-box;
    
   }
   a{
     align-self: center;
     width: 62px;
     height: 62px;
+  }
+  .gift{
+    font-size: 70px;
+    color: #e9738d;
   }
 }

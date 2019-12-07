@@ -1,4 +1,5 @@
-import React, { useState, useMemo, lazy, useCallback, useEffect } from "react";
+import React, { useState, useMemo, lazy, useCallback, useEffect} from "react";
+import {useHistory,useLocation} from "react-router-dom";
 import MyVideo from "../Video/My-Video";
 import VideoTab from "../Video/Video-Tab";
 import { w3cwebsocket } from "websocket";
@@ -21,9 +22,9 @@ console.log(w3cwebsocket);
 const client = new w3cwebsocket('wss://hw-bj-live-comet-05.chat.bilibili.com/sub');
 client.binaryType = 'arraybuffer';
 
-const auth_params = {
+let auth_params = {
     'uid': 1,
-    'roomid': 21144080,
+    'roomid':7734200,
     'protover': 1,
     'platform': 'web',
     'clientver': '1.4.0'
@@ -60,6 +61,14 @@ export default function Live(props) {
     const [select, setSelect] = useState(0);
     const [navTop, setNavTop] = useState(382);
     const [messageList, setMessageList] = useState([]);
+    const history = useHistory();
+    const location  = useLocation();
+    console.log(history);
+    console.log(location);
+
+    //设置房间号
+    auth_params.roomid = location.state;
+    let {roomid}  = auth_params;
 
     const Com = useMemo(() =>
         select === 0 ? lazy(() => import('./live-main/Interact')) : lazy(() => import('./live-main/About'))
@@ -86,6 +95,8 @@ export default function Live(props) {
         },
         [client],
     )
+
+        
 
     //监听websocket 
     useEffect(() => {
@@ -153,11 +164,15 @@ export default function Live(props) {
             isLive
         ></VideoTab>
         <Com {...props} messageList={messageList} top={navTop + 80}></Com>
-        {select == 0 && <div className="sendComment">
-            <input type="text" />
+        {select == 0 && <div className="sendComment sc-i">
+            <span className="user">
+                <img src="/static/image/user.jpg" alt=""/>
+            </span>
+            <input type="text" placeholder="发个弹幕呗"/>
             <a href="#">
                 <span className="iconfont"  ></span>
             </a>
+            <span className="iconfont icon-liwu gift"></span>
         </div>}
     </div >);
 }

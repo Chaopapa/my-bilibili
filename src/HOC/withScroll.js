@@ -15,7 +15,8 @@ export default (Com, className, top, bottom, ...rest) => {
           top: `${top}rem`,
           bottom: `${bottom}rem`,
           left: 0
-        }
+        },
+        myScroll:null
       }
       console.log(props);
 
@@ -23,14 +24,22 @@ export default (Com, className, top, bottom, ...rest) => {
     render() {
       return (
         <div className={className} style={this.state.style}>
-          <Com {...this.props} initAction={this.initScroll.bind(this)} />
+          <Com {...this.props} myScroll={this.state.myScroll} scrollTo={this.scrollTo.bind(this)} initAction={this.initScroll.bind(this)} />
         </div>
       );
     }
 
     initScroll() {
-      this.myScroll = new window.IScroll(`.${className}`);
+      let  myScroll = new window.IScroll(`.${className}`);
       console.log(className + '初始化滚动视图');
+      this.setState({
+        myScroll
+      })
     }
+
+    scrollTo(x,y){
+      this.state.myScroll.scrollTo(x,y,300);
+    }
+
   };
 };

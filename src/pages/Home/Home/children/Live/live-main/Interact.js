@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "./style.scss";
 import widthScroll from "../../../../../../HOC/withScroll";
 
@@ -16,9 +16,18 @@ const InteractItem = (props) => {
 
 const InteractMain = (props) => {
     console.log(props.messageList);
+
+    //监听list变化更新滚动视图
+    useEffect(() => {
+        props.initAction();
+        console.log(props);
+        props.myScroll&&props.scrollTo(0,props.myScroll.maxScrollY);
+
+    }, [props.messageList])
+
     return (
         <div className="live-interact-main">
-            {props.messageList.map((item,index) => {
+            {props.messageList.map((item, index) => {
                 return <InteractItem key={index} item={item} />
             })}
         </div>
@@ -34,7 +43,7 @@ const Main = widthScroll(InteractMain, 'interact-scrolll', 140 / 75, 0);
  */
 export default function Interact(props) {
 
-   console.log(props.messageList);
+    console.log(props.messageList);
 
     return <div className="live-interact">
         <div className="live-interact-header">

@@ -20,7 +20,7 @@ export default (props) => {
             <div className="list-main">
                 {showList.map(item => {
                     return <div onClick={()=>{
-                        history.push(`/home/live/detail/${item.roomid}`)
+                        history.push({pathname:`/home/live/detail/${item.roomid}`,state:item.roomid})
                         }} key={item.roomid} className="live-item">
                       <img src={item.cover} alt=""/>
                       <h4>{item.title}</h4>
